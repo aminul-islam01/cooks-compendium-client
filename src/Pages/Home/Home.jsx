@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Row xs={1} md={3} className="g-4" className='mt-5'>
+            <Row xs={1} md={3} className="g- mt-5">
                 {
                     chefs.map(chef => <Chefs
                         key={chef.id}
