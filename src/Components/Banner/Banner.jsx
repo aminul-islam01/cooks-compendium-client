@@ -12,13 +12,13 @@ const Banner = () => {
                 <div>
                     <img
                         className="d-block w-100"
-                        style={{ height: '100vh'}}
+                        style={{ height: '90vh'}}
                         src={banner3}
                         alt="First slide"
                     />
                     <div id="overlay"></div>
                 </div>
-                <Carousel.Caption className='d-flex justify-content-center align-items-center my-auto ' style={{ height: '100vh', zIndex:'3'}}>
+                <Carousel.Caption className='d-flex justify-content-center align-items-center my-auto ' style={{ height: '90vh', zIndex:'3'}}>
                     <div>
                         <h3>Vegetable Stir-Fry</h3>
                         <p>Vegetable Stir-Fry - A healthy and versatile dish that can be made with a variety of vegetables like broccoli, carrots, peppers, and onions, stir-fried in a flavorful sauce made with soy sauce, ginger, and garlic. It's a great option for a quick and easy weeknight meal.</p>
@@ -30,12 +30,12 @@ const Banner = () => {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    style={{ height: '100vh' }}
+                    style={{ height: '90vh' }}
                     src={banner2}
                     alt="Second slide"
                 />
                  <div id="overlay"></div>
-                <Carousel.Caption className='d-flex justify-content-center align-items-center my-auto ' style={{ height: '100vh', zIndex:'3' }}>
+                <Carousel.Caption className='d-flex justify-content-center align-items-center my-auto ' style={{ height: '90vh', zIndex:'3' }}>
                     <div>
                         <h3>Chocolate Cake </h3>
                         <p>Chocolate Cake - A rich and indulgent dessert made with layers of moist chocolate cake and chocolate frosting. It's a classic dessert that's perfect for special occasions or for satisfying a chocolate craving.</p>
@@ -47,12 +47,12 @@ const Banner = () => {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    style={{ height: '100vh' }}
+                    style={{ height: '90vh' }}
                     src={banner1}
                     alt="Third slide"
                 />
                  <div id="overlay"></div>
-                <Carousel.Caption className='d-flex justify-content-center align-items-center my-auto ' style={{ height: '100vh', zIndex:'3' }}>
+                <Carousel.Caption className='d-flex justify-content-center align-items-center my-auto ' style={{ height: '90vh', zIndex:'3' }}>
                     <div>
                         <h3>hicken Tikka Masala</h3>
                         <p>

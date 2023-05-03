@@ -3,7 +3,7 @@ import { Button, Form, Row } from 'react-bootstrap';
 import { UserContext } from '../../Providers/AuthProviders';
 
 const Register = () => {
-    const { createUser, emailVerified, proFileUpdate } = useContext(UserContext);
+    const { createUser, proFileUpdate } = useContext(UserContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [accept, setAccept] = useState(false);
@@ -24,10 +24,6 @@ const Register = () => {
 
                 proFileUpdate(registerUser, name, photo);
 
-                emailVerified()
-                    .then(() => {
-                        alert('check your email and verification this email')
-                    });
                 setSuccess('user has been create successfully');
                 form.reset();
                 console.log(registerUser)

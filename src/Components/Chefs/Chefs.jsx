@@ -8,7 +8,7 @@ const Chefs = ({ chef }) => {
     const { id, name, picture, experience_years, recipes, total_likes } = chef;
     return (
         <Col>
-            <Card className='mb-4'>
+            <Card className='mb-4 shadow'>
                 <Card.Img variant="top" src={picture} style={{ height: '250px' }} />
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>

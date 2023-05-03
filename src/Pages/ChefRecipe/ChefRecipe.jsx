@@ -17,7 +17,7 @@ const ChefRecipe = () => {
     // console.log(chef)
     return (
         <Container>
-            <Row className='pb-4'>
+            <Row className='py-4'>
                 <Col sm={8}>
                     <Card>
                         <img src={picture} style={{ height: '80vh' }} />

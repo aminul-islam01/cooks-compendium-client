@@ -8,7 +8,7 @@ import { UserContext } from '../../Providers/AuthProviders';
 const NavigationBar = () => {
     const { user, logOut } = useContext(UserContext);
     return (
-        <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky='top'>
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky='top' className='shadow'>
             <Container>
                 <h2><span className='text-warning fw-bold'>Cook's</span> Compendium</h2>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

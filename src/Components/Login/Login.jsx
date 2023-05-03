@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { Button, Form, Row } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../Providers/AuthProviders';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
-    const {loginUser} = useContext(UserContext);
+    const {loginUser, handleGoogleSignIn} = useContext(UserContext);
     const Navigate = useNavigate();
     const location = useLocation();
     // console.log(location)
@@ -29,7 +30,7 @@ const Login = () => {
         
     }
     return (
-        <div className='bg-light' style={{height:"100vh"}}>
+        <div className='bg-light'>
             <Row xs={1} md={2} lg={3}>
                 <Form onSubmit={handleLogin} className='mx-auto mt-5 rounded shadow p-5' style={{background:"white"}}>
                     <h4 className='fw-bold text-center py-3'>Login your account</h4>
@@ -44,7 +45,9 @@ const Login = () => {
                     </Form.Group>
                     
                     <Button className='w-100' variant="dark" type="submit">Login</Button>
-                    <p className='text-center mt-3'>Don't have an account? <Link to="/register">Register</Link></p>
+                    <p className='text-center mt-3 mb-5'>Don't have an account? <Link to="/register">Register</Link></p>
+                    <Button onClick={handleGoogleSignIn} className='w-100 mb-3' variant="outline-info" type="submit"><FaGoogle></FaGoogle> Login With Google</Button>
+                    <Button className='w-100' variant="outline-dark" type="submit"><FaGithub></FaGithub> Login With Github</Button>
                 </Form>
             </Row>
         </div>

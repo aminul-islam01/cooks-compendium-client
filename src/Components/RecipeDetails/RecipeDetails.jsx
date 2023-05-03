@@ -6,7 +6,6 @@ import Modal from 'react-bootstrap/Modal';
 const RecipeDetails = (props) => {
     const recipe = props.recipe;
     const { image_url, name, ingredients, instructions } = recipe;
-    console.log(recipe)
     return (
         <Modal
             {...props}
