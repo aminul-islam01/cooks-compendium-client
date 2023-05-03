@@ -11,7 +11,8 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Container>
-            <Row xs={1} md={3} className="g- mt-5">
+            <h2 className='mt-5 mb-4 text-warning text-center'>Our Creative Team</h2>
+            <Row xs={1} md={3}>
                 {
                     chefs.map(chef => <Chefs
                         key={chef.id}
