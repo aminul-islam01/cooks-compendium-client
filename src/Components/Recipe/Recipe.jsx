@@ -6,32 +6,23 @@ import '@smastrom/react-rating/style.css'
 
 const Recipe = ({ recipe }) => {
     const [recipeDetails, setRecipeDetails] = useState(false);
-    const { image, recipeName, ingredients, ratings } = recipe;
+    const { image_url, name, ratings } = recipe;
 
 
     // console.log(recipe)
     return (
         <Col>
             <Card className='mb-4'>
-                <Card.Img variant="top" src={image} style={{ height: '250px' }} />
+                <Card.Img variant="top" src={image_url} style={{ height: '250px' }} />
                 <Card.Body>
-                    <Card.Title>{recipeName}</Card.Title>
-                    <h6>Ingredients:</h6>
-                    <ol>
-                        {
-                            ingredients.map((ingredient, idIndx) => <li
-                                key={idIndx}>
-                                {ingredient}
-                            </li>)
-                        }
-                    </ol>
+                    <Card.Title>{name}</Card.Title>
                     <div className='d-flex align-items-center'>
                     <Rating
                         style={{ maxWidth: 150 }}
                         readOnly
-                        value={ratings.taste}
+                        value={ratings}
                     />
-                    <span className='ms-2 text-secondary'>{ratings.taste}</span>
+                    <span className='ms-2 text-secondary'>{ratings}</span>
                     </div>
 
                     <div className='d-flex justify-content-between gap-3 mt-3'>

@@ -5,8 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 
 const RecipeDetails = (props) => {
     const recipe = props.recipe;
-    const { image, recipeName, ingredients, cookingMethod } = recipe;
-    const cookiesDetails = cookingMethod.split('.');
+    const { image_url, name, ingredients, instructions } = recipe;
     console.log(recipe)
     return (
         <Modal
@@ -17,13 +16,13 @@ const RecipeDetails = (props) => {
         >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                    {recipeName}
+                    {name}
                 </Modal.Title>
             </Modal.Header>
             <Card className='mb-4'>
-                <Card.Img variant="top" src={image}/>
+                <Card.Img variant="top" src={image_url}/>
                 <Card.Body>
-                    <Card.Title>{recipeName}</Card.Title>
+                    <Card.Title>{name}</Card.Title>
                     <h6 className='mt-4'>Ingredients:</h6>
                     <ol>
                         {
@@ -36,7 +35,7 @@ const RecipeDetails = (props) => {
                     <h6 className='mt-4'>Cooking Method:</h6>
                     <ol>
                         {
-                            cookiesDetails.map((cook, idIndx) => <li
+                            instructions.map((cook, idIndx) => <li
                                 key={idIndx}>
                                 {cook}
                             </li>)

@@ -2,7 +2,7 @@ import React from 'react';
 import Banner from '../../Components/Banner/Banner';
 import { useLoaderData } from 'react-router-dom';
 import Chefs from '../../Components/Chefs/Chefs';
-import { Row } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 
 const Home = () => {
     const chefs = useLoaderData()
@@ -10,6 +10,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <Container>
             <Row xs={1} md={3} className="g- mt-5">
                 {
                     chefs.map(chef => <Chefs
@@ -18,6 +19,7 @@ const Home = () => {
                     </Chefs>)
                 }
             </Row>
+            </Container>
         </div>
     );
 };
