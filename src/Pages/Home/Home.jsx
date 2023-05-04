@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../../Components/Banner/Banner';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import Chefs from '../../Components/Chefs/Chefs';
 import { Container, Row } from 'react-bootstrap';
 import Marquee from "react-fast-marquee";
@@ -13,7 +13,7 @@ const Home = () => {
     const chefs = useLoaderData();
     const [featureRecipes, setFeatureRecipes] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/feature-recipe')
+        fetch('https://cooks-compendium-server-site-6w7vu3qaq-aminul-islam01.vercel.app/feature-recipe')
             .then(res => res.json())
             .then(data => setFeatureRecipes(data))
     }, [])

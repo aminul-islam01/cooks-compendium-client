@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
 import { FaThumbsUp } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazy-load';
 
 
 const Chefs = ({ chef }) => {
@@ -9,7 +10,9 @@ const Chefs = ({ chef }) => {
     return (
         <Col>
             <Card className='mb-4 shadow'>
-                <Card.Img variant="top" src={picture} style={{ height: '250px' }} />
+                <LazyLoad>
+                    <Card.Img variant="top" src={picture} style={{ height: '250px' }} />
+                </LazyLoad>
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
                     <div>

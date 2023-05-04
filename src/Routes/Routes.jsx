@@ -7,6 +7,7 @@ import Register from "../Components/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import Blogs from "../Pages/Blogs/Blogs";
+import LoadingSpinner from "../Components/LoadingSpinner/LoadingSpinner";
 
 
 
@@ -19,12 +20,12 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5000/chefs')
+        loader: () => fetch('https://cooks-compendium-server-site-6w7vu3qaq-aminul-islam01.vercel.app/chefs')
       },
       {
         path: "/chef-recipe/:id",
         element: <PrivateRoute><ChefRecipe></ChefRecipe></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
+        loader: ({params}) => fetch(`https://cooks-compendium-server-site-6w7vu3qaq-aminul-islam01.vercel.app/chefs/${params.id}`)
       },
       {
         path: "/login",
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>
+      },
+      {
+        path: "/loading",
+        element: <LoadingSpinner></LoadingSpinner>
       }
     ]
   },

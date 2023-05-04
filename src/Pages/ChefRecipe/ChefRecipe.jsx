@@ -10,7 +10,7 @@ const ChefRecipe = () => {
     const { id, name, picture, bio, experience_years, recipes, total_likes } = chef;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/recipes/${id}`)
+        fetch(`https://cooks-compendium-server-site-6w7vu3qaq-aminul-islam01.vercel.app/recipes/${id}`)
         .then(res=> res.json())
         .then(data=> setChefRecipes(data))
     } , [])

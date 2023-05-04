@@ -11,8 +11,7 @@ const Recipe = ({ recipe }) => {
     const [show, setShow] = useState(false)
 
     const handleFavorite = () => {
-        setShow(!show)
-        console.log(show)
+        setShow(!show);
         Swal.fire({
             position: 'top-center',
             icon: 'success',
