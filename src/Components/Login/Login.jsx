@@ -6,7 +6,7 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import Swal from 'sweetalert2'
 
 const Login = () => {
-    const {loginUser, handleGoogleSignIn} = useContext(UserContext);
+    const {loginUser, handleGoogleSignIn,  handleGithubSignIn} = useContext(UserContext);
     const Navigate = useNavigate();
     const location = useLocation();
     const [error, setError] = useState('');
@@ -25,7 +25,7 @@ const Login = () => {
             form.reset();
             Navigate(from, {replace: true});
             Swal.fire({
-                position: 'top-center',
+                // position: 'top-center',
                 icon: 'success',
                 title: 'Login successfull',
                 showConfirmButton: false,
@@ -55,8 +55,8 @@ const Login = () => {
                     <p className='text-danger mt-1'>{error}</p>
                     <Button className='w-100' variant="dark" type="submit">Login</Button>
                     <p className='text-center mt-3 mb-5'>Don't have an account? <Link to="/register">Register</Link></p>
-                    <Button onClick={handleGoogleSignIn} className='w-100 mb-3' variant="outline-info" type="submit"><FaGoogle></FaGoogle> Login With Google</Button>
-                    <Button className='w-100' variant="outline-dark" type="submit"><FaGithub></FaGithub> Login With Github</Button>
+                    <Button onClick={()=>handleGoogleSignIn(from, Navigate)} className='w-100 mb-3' variant="outline-info" type="submit"><FaGoogle></FaGoogle> Login With Google</Button>
+                    <Button onClick={()=>handleGithubSignIn(from, Navigate)} className='w-100' variant="outline-dark" type="submit"><FaGithub></FaGithub> Login With Github</Button>
                 </Form>
             </Row>
         </div>

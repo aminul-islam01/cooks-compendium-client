@@ -1,12 +1,12 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCeSZGcZm-i1ZsfVnojiPgxEyiWzUn64k4",
-  authDomain: "cooks-compendium.firebaseapp.com",
-  projectId: "cooks-compendium",
-  storageBucket: "cooks-compendium.appspot.com",
-  messagingSenderId: "100761266558",
-  appId: "1:100761266558:web:5e22563460f06e85672b2f"
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID
 };
 
 const app = initializeApp(firebaseConfig);
