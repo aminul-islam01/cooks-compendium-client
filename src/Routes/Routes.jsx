@@ -38,10 +38,6 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>
-      },
-      {
-        path: "/loading",
-        element: <LoadingSpinner></LoadingSpinner>
       }
     ]
   },
