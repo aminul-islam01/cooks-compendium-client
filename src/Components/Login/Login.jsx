@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form, Row } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../Providers/AuthProviders';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+import Swal from 'sweetalert2'
 
 const Login = () => {
     const {loginUser, handleGoogleSignIn} = useContext(UserContext);
     const Navigate = useNavigate();
     const location = useLocation();
+    const [error, setError] = useState('');
     // console.log(location)
     const from = location.state?.from?.pathname || "/";
 
@@ -21,16 +23,23 @@ const Login = () => {
         .then((result) => {
             const loggedUser = result.user;
             form.reset();
-            Navigate(from, {replace: true})
+            Navigate(from, {replace: true});
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Login successfull',
+                showConfirmButton: false,
+                timer: 1500
+            })
           })
           .catch((error) => {
             const errorMessage = error.message;
-            console.log(errorMessage)
+           setError(errorMessage)
           });
         
     }
     return (
-        <div className='bg-light'>
+        <div className='bg-light pb-5'>
             <Row xs={1} md={2} lg={3}>
                 <Form onSubmit={handleLogin} className='mx-auto mt-5 rounded shadow p-5' style={{background:"white"}}>
                     <h4 className='fw-bold text-center py-3'>Login your account</h4>
@@ -43,7 +52,7 @@ const Login = () => {
                         <Form.Label className='fw-bold'>Password</Form.Label>
                         <Form.Control type='password' name='password' placeholder="Enter your password" />
                     </Form.Group>
-                    
+                    <p className='text-danger mt-1'>{error}</p>
                     <Button className='w-100' variant="dark" type="submit">Login</Button>
                     <p className='text-center mt-3 mb-5'>Don't have an account? <Link to="/register">Register</Link></p>
                     <Button onClick={handleGoogleSignIn} className='w-100 mb-3' variant="outline-info" type="submit"><FaGoogle></FaGoogle> Login With Google</Button>

@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Button, Form, Row } from 'react-bootstrap';
 import { UserContext } from '../../Providers/AuthProviders';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 const Register = () => {
     const { createUser, proFileUpdate } = useContext(UserContext);
@@ -18,6 +20,23 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        if (password.length < 8) {
+            setError("Password length must be at least 8 characters");
+            return;
+          } else if (password.length >= 15) {
+            setError("Password length must not exceed 15 characters");
+            return;
+          } else if (!/(?=.*[A-Z])/.test(password)) {
+            setError("Password must be at least one uppercase");
+            return;
+          } else if (!/(?=.*[@$!%#*?&])/.test(password)) {
+            setError("Password must be at least one special characters");
+            return;
+          } else if (!/[0-9]/.test(password)) {
+            setError("Password must be at least one number");
+            return;
+          }
+
         createUser(email, password)
             .then((result) => {
                 const registerUser = result.user;
@@ -26,6 +45,13 @@ const Register = () => {
 
                 setSuccess('user has been create successfully');
                 form.reset();
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'user has been create successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 console.log(registerUser)
             })
             .catch((error) => {
@@ -40,7 +66,7 @@ const Register = () => {
     } 
 
     return (
-        <div className='bg-light'>
+        <div className='bg-light pb-5'>
             <Row xs={1} md={2} lg={3}>
                 <Form onSubmit={handleRegister} className='mx-auto mt-5 rounded shadow p-5' style={{ background: "white" }}>
                     <h4 className='fw-bold text-center py-3'>Register your account</h4>
@@ -61,7 +87,6 @@ const Register = () => {
                         <Form.Label className='fw-bold'>Password</Form.Label>
                         <Form.Control type='password' name='password' placeholder="Enter your password" required />
                     </Form.Group>
-
                     <Form.Group className="mb-3">
                         <Form.Check type="checkbox" onClick={handleAccept} label="Accept Term & Conditions" />
                     </Form.Group>

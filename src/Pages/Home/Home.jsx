@@ -5,6 +5,9 @@ import Chefs from '../../Components/Chefs/Chefs';
 import { Container, Row } from 'react-bootstrap';
 import Marquee from "react-fast-marquee";
 import FeatureRecipe from '../../Components/FeatureRecipe/FeatureRecipe';
+import ContactUs from '../../Components/ContactUs/ContactUs';
+import bgimg from '../../images/contact-bg.jpg'
+import './Home.css'
 
 const Home = () => {
     const chefs = useLoaderData();
@@ -40,6 +43,10 @@ const Home = () => {
                     </Row>
                 </Marquee>
             </Container>
+            <div className='relative my-5' style={{backgroundImage:`url(${bgimg})`}}>
+            <div id="overlay2"></div>
+            <ContactUs></ContactUs>
+            </div>    
         </div>
     );
 };
