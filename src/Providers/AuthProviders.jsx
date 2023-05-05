@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../Firebase/Firebase.config';
 import Swal from 'sweetalert2'
 
@@ -26,7 +26,7 @@ const AuthProviders = ({ children }) => {
           title: 'Login successfull',
           showConfirmButton: false,
           timer: 1500
-      })
+        })
         // console.log(loggedUser);
 
       }).catch((error) => {
@@ -99,6 +99,31 @@ const AuthProviders = ({ children }) => {
     }
 
   }, [])
+
+  const handleResetPassword = event => {
+    const form = event.target.parentNode.parentNode;
+    const email = form.email.value;
+    // const email = emailRef.current.value;
+    if (!email) {
+      alert('Please provide your email address to reset password')
+      return;
+    }
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        alert('Please check your email')
+      })
+      .catch(error => {
+        console.log(error);
+        Swal.fire({
+          icon: 'error',
+          title: error.message,
+          showConfirmButton: false,
+          timer: 1500
+        })
+      })
+  }
+
+
   // console.log(user)
   const userInfo = {
     user,
@@ -110,7 +135,8 @@ const AuthProviders = ({ children }) => {
     logOut,
     loading,
     emailVerified,
-    proFileUpdate
+    proFileUpdate,
+    handleResetPassword
   }
 
   return (

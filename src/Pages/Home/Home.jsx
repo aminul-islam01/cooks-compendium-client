@@ -8,8 +8,10 @@ import FeatureRecipe from '../../Components/FeatureRecipe/FeatureRecipe';
 import ContactUs from '../../Components/ContactUs/ContactUs';
 import bgimg from '../../images/contact-bg.jpg'
 import './Home.css'
+import useTitle from '../../hooks/useTitle';
 
 const Home = () => {
+    useTitle('Home');
     const chefs = useLoaderData();
     const [featureRecipes, setFeatureRecipes] = useState([]);
     useEffect(() => {

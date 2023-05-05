@@ -1,10 +1,12 @@
 import React from 'react';
 import { Button, Container, Row } from 'react-bootstrap';
 import Pdf from "react-to-pdf";
+import useTitle from '../../hooks/useTitle';
 
 const ref = React.createRef();
 
 const Blogs = () => {
+    useTitle('Blog');
     return (
         <Container>
             <Row xs={1} md={2}>

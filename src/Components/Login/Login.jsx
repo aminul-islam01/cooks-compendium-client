@@ -4,9 +4,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../Providers/AuthProviders';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import Swal from 'sweetalert2'
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
-    const {loginUser, handleGoogleSignIn,  handleGithubSignIn} = useContext(UserContext);
+    useTitle('Login');
+    const {loginUser, handleGoogleSignIn,  handleGithubSignIn, handleResetPassword} = useContext(UserContext);
     const Navigate = useNavigate();
     const location = useLocation();
     const [error, setError] = useState('');
@@ -54,6 +56,7 @@ const Login = () => {
                     </Form.Group>
                     <p className='text-danger mt-1'>{error}</p>
                     <Button className='w-100' variant="dark" type="submit">Login</Button>
+                    <p className='text-center mt-3'>Forget Password? Please <Link onClick={handleResetPassword}>Reset Password</Link></p>
                     <p className='text-center mt-3 mb-5'>Don't have an account? <Link to="/register">Register</Link></p>
                     <Button onClick={()=>handleGoogleSignIn(from, Navigate)} className='w-100 mb-3' variant="outline-info" type="submit"><FaGoogle></FaGoogle> Login With Google</Button>
                     <Button onClick={()=>handleGithubSignIn(from, Navigate)} className='w-100' variant="outline-dark" type="submit"><FaGithub></FaGithub> Login With Github</Button>

@@ -3,8 +3,10 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 import { FaThumbsUp } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import Recipe from '../../Components/Recipe/Recipe';
+import useTitle from '../../hooks/useTitle';
 
 const ChefRecipe = () => {
+    useTitle('Chef-recipe');
     const chef = useLoaderData();
     const [chefRecipes, setChefRecipes] = useState([]);
     const { id, name, picture, bio, experience_years, recipes, total_likes } = chef;

@@ -3,8 +3,10 @@ import { Button, Form, Row } from 'react-bootstrap';
 import { UserContext } from '../../Providers/AuthProviders';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
+    useTitle('Register');
     const { createUser, proFileUpdate } = useContext(UserContext);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
