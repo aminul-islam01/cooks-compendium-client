@@ -97,8 +97,8 @@ const Register = () => {
                         type={showPassword?'text':'password'}
                         name='password' 
                         placeholder="Enter your password" />
-                        {showPassword?<FaEyeSlash onClick={handleShowPassword} className='eye'></FaEyeSlash>
-                        :<FaEye onClick={handleShowPassword} className='eye'></FaEye>}
+                        {showPassword?<FaEye onClick={handleShowPassword} className='eye'></FaEye>
+                        :<FaEyeSlash onClick={handleShowPassword} className='eye'></FaEyeSlash>}
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Check type="checkbox" onClick={handleAccept} label="Accept Term & Conditions" />

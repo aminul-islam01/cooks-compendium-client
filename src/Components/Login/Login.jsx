@@ -62,8 +62,8 @@ const Login = () => {
                         type={showPassword?'text':'password'}
                         name='password' 
                         placeholder="Enter your password" />
-                        {showPassword?<FaEyeSlash onClick={handleShowPassword} className='eye'></FaEyeSlash>
-                        :<FaEye onClick={handleShowPassword} className='eye'></FaEye>}
+                        {showPassword?<FaEye onClick={handleShowPassword} className='eye'></FaEye>
+                        :<FaEyeSlash onClick={handleShowPassword} className='eye'></FaEyeSlash>}
                     </Form.Group>
                     <p className='text-danger mt-1'>{error}</p>
                     <Button className='w-100' variant="dark" type="submit">Login</Button>
