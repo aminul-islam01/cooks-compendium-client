@@ -4,6 +4,7 @@ import { UserContext } from '../../Providers/AuthProviders';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2'
 import useTitle from '../../hooks/useTitle';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
     useTitle('Register');
@@ -11,6 +12,7 @@ const Register = () => {
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
     const [accept, setAccept] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleRegister = (event) => {
         setError('');
@@ -62,6 +64,10 @@ const Register = () => {
             });
     }
 
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword);
+    }
+
     const handleAccept = event => {
         const checked = event.target.checked;
         setAccept(checked);
@@ -87,7 +93,12 @@ const Register = () => {
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label className='fw-bold'>Password</Form.Label>
-                        <Form.Control type='password' name='password' placeholder="Enter your password" required />
+                        <Form.Control 
+                        type={showPassword?'text':'password'}
+                        name='password' 
+                        placeholder="Enter your password" />
+                        {showPassword?<FaEyeSlash onClick={handleShowPassword} className='eye'></FaEyeSlash>
+                        :<FaEye onClick={handleShowPassword} className='eye'></FaEye>}
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Check type="checkbox" onClick={handleAccept} label="Accept Term & Conditions" />

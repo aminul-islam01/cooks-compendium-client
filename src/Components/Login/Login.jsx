@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
+import './Login.css'
 import { Button, Form, Row } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../Providers/AuthProviders';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from 'react-icons/fa';
 import Swal from 'sweetalert2'
 import useTitle from '../../hooks/useTitle';
 
@@ -12,6 +13,7 @@ const Login = () => {
     const Navigate = useNavigate();
     const location = useLocation();
     const [error, setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     // console.log(location)
     const from = location.state?.from?.pathname || "/";
 
@@ -40,6 +42,10 @@ const Login = () => {
           });
         
     }
+
+    const handleShowPassword = () => {
+        setShowPassword(!showPassword);
+    }
     return (
         <div className='bg-light pb-5'>
             <Row xs={1} md={2} lg={3}>
@@ -52,7 +58,12 @@ const Login = () => {
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label className='fw-bold'>Password</Form.Label>
-                        <Form.Control type='password' name='password' placeholder="Enter your password" />
+                        <Form.Control 
+                        type={showPassword?'text':'password'}
+                        name='password' 
+                        placeholder="Enter your password" />
+                        {showPassword?<FaEyeSlash onClick={handleShowPassword} className='eye'></FaEyeSlash>
+                        :<FaEye onClick={handleShowPassword} className='eye'></FaEye>}
                     </Form.Group>
                     <p className='text-danger mt-1'>{error}</p>
                     <Button className='w-100' variant="dark" type="submit">Login</Button>

@@ -34,7 +34,7 @@ const Home = () => {
                     }
                 </Row>
 
-                <h2 className='mt-5 mb-4 text-warning text-center'>Our Feature Recipes</h2>
+                <h2 className='mt-5 mb-4 text-warning text-center'>Our Featured Recipes</h2>
                 <Marquee speed={100}>
                     <Row className='me-4'>
                         {
